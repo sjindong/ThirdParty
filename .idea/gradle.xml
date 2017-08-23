@@ -10,6 +10,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/cache_disklrucache" />
+            <option value="$PROJECT_DIR$/chart_hellocharts" />
+            <option value="$PROJECT_DIR$/chart_mpandroidchart" />
+            <option value="$PROJECT_DIR$/chart_williamchart" />
             <option value="$PROJECT_DIR$/database_active_android" />
             <option value="$PROJECT_DIR$/database_greendao" />
             <option value="$PROJECT_DIR$/database_ormlite" />
@@ -22,14 +25,14 @@
             <option value="$PROJECT_DIR$/image_glide" />
             <option value="$PROJECT_DIR$/image_picasso" />
             <option value="$PROJECT_DIR$/image_universal_image_loader" />
+            <option value="$PROJECT_DIR$/log_hugo" />
+            <option value="$PROJECT_DIR$/log_logger" />
+            <option value="$PROJECT_DIR$/log_timber" />
             <option value="$PROJECT_DIR$/net_androidasync" />
             <option value="$PROJECT_DIR$/net_asynchttp" />
             <option value="$PROJECT_DIR$/net_okhttp" />
             <option value="$PROJECT_DIR$/net_retrofit" />
             <option value="$PROJECT_DIR$/net_volley" />
-            <option value="$PROJECT_DIR$/table_hellocharts" />
-            <option value="$PROJECT_DIR$/table_mpandroidchart" />
-            <option value="$PROJECT_DIR$/table_williamchart" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
