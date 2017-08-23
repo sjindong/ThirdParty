@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ThirdParty.iml" filepath="$PROJECT_DIR$/ThirdParty.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/cache_disklrucache/cache_disklrucache.iml" filepath="$PROJECT_DIR$/cache_disklrucache/cache_disklrucache.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_active_android/database_active_android.iml" filepath="$PROJECT_DIR$/database_active_android/database_active_android.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_greendao/database_greendao.iml" filepath="$PROJECT_DIR$/database_greendao/database_greendao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_ormlite/database_ormlite.iml" filepath="$PROJECT_DIR$/database_ormlite/database_ormlite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_realm/database_realm.iml" filepath="$PROJECT_DIR$/database_realm/database_realm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_sqlbrite/database_sqlbrite.iml" filepath="$PROJECT_DIR$/database_sqlbrite/database_sqlbrite.iml" />
+      <module fileurl="file://$PROJECT_DIR$/database_suger/database_suger.iml" filepath="$PROJECT_DIR$/database_suger/database_suger.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework_bufferknife/framework_bufferknife.iml" filepath="$PROJECT_DIR$/framework_bufferknife/framework_bufferknife.iml" />
+      <module fileurl="file://$PROJECT_DIR$/framework_eventbus/framework_eventbus.iml" filepath="$PROJECT_DIR$/framework_eventbus/framework_eventbus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image_fresco/image_fresco.iml" filepath="$PROJECT_DIR$/image_fresco/image_fresco.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image_glide/image_glide.iml" filepath="$PROJECT_DIR$/image_glide/image_glide.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image_picasso/image_picasso.iml" filepath="$PROJECT_DIR$/image_picasso/image_picasso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/image_universal_image_loader/image_universal_image_loader.iml" filepath="$PROJECT_DIR$/image_universal_image_loader/image_universal_image_loader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_androidasync/net_androidasync.iml" filepath="$PROJECT_DIR$/net_androidasync/net_androidasync.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_asynchttp/net_asynchttp.iml" filepath="$PROJECT_DIR$/net_asynchttp/net_asynchttp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_okhttp/net_okhttp.iml" filepath="$PROJECT_DIR$/net_okhttp/net_okhttp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_retrofit/net_retrofit.iml" filepath="$PROJECT_DIR$/net_retrofit/net_retrofit.iml" />
+      <module fileurl="file://$PROJECT_DIR$/net_volley/net_volley.iml" filepath="$PROJECT_DIR$/net_volley/net_volley.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table_hellocharts/table_hellocharts.iml" filepath="$PROJECT_DIR$/table_hellocharts/table_hellocharts.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table_mpandroidchart/table_mpandroidchart.iml" filepath="$PROJECT_DIR$/table_mpandroidchart/table_mpandroidchart.iml" />
+      <module fileurl="file://$PROJECT_DIR$/table_williamchart/table_williamchart.iml" filepath="$PROJECT_DIR$/table_williamchart/table_williamchart.iml" />
+    </modules>
+  </component>
+</project>
