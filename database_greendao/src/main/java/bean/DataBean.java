@@ -8,6 +8,7 @@ import org.greenrobot.greendao.annotation.Generated;
 
 /**
  * Created by SJD on 2017/10/19.
+ *
  * @author SJD
  */
 /*@Entity：将我们的java普通类变为一个能够被greenDAO识别的数据库类型的实体类;
@@ -24,24 +25,37 @@ public class DataBean {
     private String msg;
     @Transient
     private int state;
+
     @Generated(hash = 532927832)
     public DataBean(Long id, @NotNull String msg) {
         this.id = id;
         this.msg = msg;
     }
+
     @Generated(hash = 908697775)
     public DataBean() {
     }
+
     public Long getId() {
         return this.id;
     }
+
     public void setId(Long id) {
         this.id = id;
     }
+
     public String getMsg() {
         return this.msg;
     }
+
     public void setMsg(String msg) {
         this.msg = msg;
+    }
+
+    @Override
+    public String toString() {
+        return "id = " + id + "; " +
+                "msg = " + msg + "; " +
+                "state = " + state + "; ";
     }
 }

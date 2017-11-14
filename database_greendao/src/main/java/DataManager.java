@@ -14,7 +14,7 @@ public class DataManager {
 
     private DataManager() {
         if (mInstance == null) {
-            DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(Application.context, "msg.db");
+            DaoMaster.DevOpenHelper devOpenHelper = new DaoMaster.DevOpenHelper(Application.context, "databean.db");
             mDaoMaster = new DaoMaster(devOpenHelper.getWritableDatabase());
             mDaoSession = mDaoMaster.newSession();
         }

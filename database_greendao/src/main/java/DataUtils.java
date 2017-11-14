@@ -1,17 +1,10 @@
-import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
-import android.os.Handler;
 import android.util.Log;
 
 import org.greenrobot.greendao.database.Database;
 
-import java.util.List;
-
 import auto.DataBeanDao;
 import bean.DataBean;
-import cn.digirun.update.data.autocreate.DataBeanDao;
-import cn.digirun.update.receiver.MsgReceiver;
 
 /**
  * Created by SJD on 2017/10/19.
@@ -48,106 +41,114 @@ public class DataUtils {
         //insertInTx(Iterable < T > entities)
     }
 
-    public static void del(Context context, String msg) {
-        Log.e(TAG, "del: msg =" + msg);
-        DataBean data = find(msg);
-        del(context, data);
+    /**
+     * 删除数据
+     *
+     * @param dataBean 数据单元
+     */
+    public static void del(DataBean dataBean) {
+        user().delete(dataBean);
+
+        // 批量删除数据
+        //deleteInTx(Iterable < T > entities)
     }
 
     /**
-     * 删除
+     * 删除主键
      *
-     * @param context context上下文
-     * @param user    数据
+     * @param key 主键
      */
-    public static void del(final Context context, DataBean user) {
-//        User user = new User(null, name, age, studentId);
-        log("del", user);
-        if (user == null) {
-            return;
-        }
-        user().delete(user);
-        if (context != null) {
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    Intent intent = new Intent();
-                    //请求处理新的Msg
-                    intent.setAction(MsgReceiver.HANDLE_NEWMSG);
-                    context.sendBroadcast(intent);
-                }
-            }, 5 * 1000);
-        }
-//        delete(T entity) 删除数据
-//        deleteByKey(K key) 指定主键删除数据
-//        deleteInTx(Iterable < T > entities) 批量删除数据
-//        deleteByKeyInTx(Iterable < K > keys) 批量按数据删除数据
-//        deleteAll() 删除所有数据
-    }
-
-    public static void delKey(long key) {
-        Log.e(TAG, "delKey:  key = " + key);
+    public static void delKey(Long key) {
         user().deleteByKey(key);
+
+        //批量按数据删除数据
+        //deleteByKeyInTx(Iterable < K > keys)
     }
 
     /**
-     * 改：
-     *
-     * @param user 数据
+     * 删除全部
      */
-    public static void update(DataBean user) {
-//        User user = new User(id, name, age, studentId);
-        log("update", user);
-        user().update(user);
+    public static void delAll() {
+        //删除所有数据
+        user().deleteAll();
+    }
 
-//        update(T entity) 修改数据，
-//
-//        主键需相同
-//        updateInTx(Iterable < T > entities) 批量更新数据
+
+    /**
+     * 修改数据
+     *
+     * @param dataBean 数据
+     */
+    public static void update(DataBean dataBean) {
+        user().update(dataBean);
+
+        //批量更新数据
+        //updateInTx(Iterable < T > entities)
     }
 
     /**
-     * 查：
+     * 查找数据
      *
-     * @param id id序列号
+     * @param key 主键
      */
-    public static void find(long id) {
-        Log.e(TAG, "find: id = " + id);
-        user().load(id);
+    public static DataBean load(long key) {
+        return user().load(key);
 
-//        load(K key) 根据id查找数据
-//        loadByRowId( long rowId)根据行号查找数据
-//        loadAll() 查找全部数据
+        //根据行号查找数据
+        //loadByRowId( long rowId)
+        //查找全部数据
+        //loadAll();
     }
 
-    public static DataBean find(String msg) {
-        Log.e(TAG, "find: msg = " + msg);
-        return user().queryBuilder().where(DataBeanDao.Properties.Msg.eq(msg)).build().unique();
+    /**
+     * 删除表
+     */
+    public static void delTable() {
+        Database database = DataManager.getInstance().getNewSession().getDatabase();
+        DataBeanDao.dropTable(database, true);
     }
 
-
-    public static List<DataBean> loadAll() {
-        List<DataBean> data = user().loadAll();
-        for (DataBean d : data) {
-            log("loadAll", d);
-        }
-        return data;
+    /**
+     * 新建表
+     */
+    public static void creatTable() {
+        Database database = DataManager.getInstance().getNewSession().getDatabase();
+        DataBeanDao.createTable(database, true);
     }
 
-    public static void log(String mothed, DataBean dataBean) {
+    public static void logData(String mothed, DataBean dataBean) {
         if (dataBean == null) {
             Log.e(TAG, mothed + ":  dataBean is null");
         } else {
-            Log.e(TAG, mothed + ":  id = " + dataBean.getId() + "  msg = " + dataBean.getMsg() + " state = " + dataBean.getState());
+            dataBean.toString();
+            Log.e(TAG, mothed + ":" + dataBean.toString());
         }
-
     }
 
-    private static void delAndCreatTable() {
-        //  删表和建表
-        Database database = DataManager.getInstance().getNewSession().getDatabase();
-        DataBeanDao.dropTable(database, true);
-        DataBeanDao.createTable(DataManager.getInstance().getNewSession().getDatabase(), true);
+    /**
+     * 最后的参数
+     *
+     * @return
+     */
+    public static DataBean autoGetLast() {
+        DataBean data = user().queryBuilder().where(DataBeanDao.Properties.Id.eq(lastKey())).build().unique();
+        return data;
+    }
 
+    /**
+     * 获取最后的 key
+     *
+     * @return key int
+     */
+    public static int lastKey() {
+        String sql = "select last_insert_rowid() from " + user().getTablename();
+        Cursor cursor = DataManager.getInstance().getSession().getDatabase().rawQuery(sql, null);
+        int a = -1;
+        if (cursor.moveToFirst()) {
+            a = cursor.getInt(0);
+        }
+        cursor.close();
+        Log.e(TAG, "lastID: a =" + a);
+        return a;
     }
 }

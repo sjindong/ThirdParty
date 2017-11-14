@@ -19,14 +19,14 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="queryAll"
-        android:text="queryAll"/>
+        android:onClick="delAll"
+        android:text="delAll"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="autoGetLast"
-        android:text="autoGetLast"/>
+        android:onClick="update"
+        android:text="update"/>
 
     <Button
         android:layout_width="match_parent"
@@ -43,6 +43,18 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:onClick="loadAll"
-        android:text="loadAll"/>
+        android:onClick="load"
+        android:text="load"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="creatTable"
+        android:text="creatTable"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="delTable"
+        android:text="delTable"/>
 </LinearLayout>
