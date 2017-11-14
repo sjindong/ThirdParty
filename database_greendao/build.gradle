@@ -1,8 +1,11 @@
 apply plugin: 'com.android.library'
 
+//SJD_GreenDao_Step_2
+apply plugin: 'org.greenrobot.greendao'
+
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
 
     defaultConfig {
         minSdkVersion 21
@@ -19,6 +22,13 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    //SJD_GreenDao_Step_3
+    greendao {
+        schemaVersion 1//指定数据库schema版本号，迁移等操作会用到；
+        daoPackage 'auto'//通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名
+        targetGenDir 'src/main/java' //自定义生成数据库文件的目录，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
+    }
 }
 
 dependencies {
@@ -27,5 +37,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
+
+    //SJD_GreenDao_Step_4
+    compile 'org.greenrobot:greendao:3.2.2'
     testCompile 'junit:junit:4.12'
 }
